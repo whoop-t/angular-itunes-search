@@ -13,7 +13,7 @@ export class AppComponent {
 
   ngOnInit() {
     let obs = this.http.get(
-      'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita'
+      'https://itunes.apple.com/search?term=jack+johnson&limit=3'
     );
     obs.subscribe((response) => console.log(response));
   }
