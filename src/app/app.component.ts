@@ -15,8 +15,8 @@ export class AppComponent {
 
   constructor(private searchService: ItuneSearchService) {
     this.searchService.getSongs(this.searchTerm$).subscribe((results) => {
-      this.results = results.results;
-      console.log(results);
+      this.results = Object.values(results)[1];
+      console.log(this.results);
     });
   }
 }

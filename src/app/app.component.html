@@ -2,9 +2,8 @@
 <input (keyup)="searchTerm$.next($event.target.value)" />
 
 <ul *ngIf="results">
-  <li *ngFor="let result of results | slice: 0:9">
-    {{ result.artistName }}
-    {{ result.trackName }}
+  <li *ngFor="let result of results">
+    Song: {{ result.trackName }} Artist: {{ result.artistName }} Album:
     {{ result.collectionName }}
   </li>
 </ul>

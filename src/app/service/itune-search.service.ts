@@ -13,6 +13,7 @@ export class ItuneSearchService {
   itunesUrl: string =
     'https://cors-anywhere.herokuapp.com/https://itunes.apple.com/';
   queryUrl: string = 'search?term=';
+  limit: string = '&limit=3';
   constructor(private http: HttpClient) {}
 
   getSongs(terms: Observable<string>) {
@@ -24,7 +25,7 @@ export class ItuneSearchService {
   }
   searchEntries(term) {
     return this.http
-      .get(this.itunesUrl + this.queryUrl + term)
+      .get(`${this.itunesUrl}${this.queryUrl}${term}&media=music${this.limit}`)
       .pipe(map((res) => res));
   }
 }
