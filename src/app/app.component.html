@@ -1,9 +1,25 @@
-<app-header></app-header>
-<input (keyup)="searchTerm$.next($event.target.value)" />
+<div fxLayout="column" fxLayoutAlign="center center">
+  <!--Itunes Search Header-->
+  <app-header></app-header>
+  <!--Input field for search-->
+  <mat-form-field class="example-full-width">
+    <input matInput (keyup)="searchTerm$.next($event.target.value)" />
+  </mat-form-field>
+  <button mat-button>Submit</button>
 
-<ul *ngIf="results">
-  <li *ngFor="let result of results">
-    Song: {{ result.trackName }} Artist: {{ result.artistName }} Album:
-    {{ result.collectionName }}
-  </li>
-</ul>
+  <!--List created after searching, returns 3 results-->
+  <div *ngIf="results">
+    <table class="mat-table">
+      <tr class="mat-header-row">
+        <th class="mat-header-cell go-left">Song</th>
+        <th class="mat-header-cell go-center">Artist</th>
+        <th class="mat-header-cell go-right">Album</th>
+      </tr>
+      <tr class="mat-row" *ngFor="let result of results">
+        <td class="mat-cell">{{ result.trackName }}</td>
+        <td class="mat-cell">{{ result.artistName }}</td>
+        <td class="mat-cell go-right">{{ result.collectionName }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
