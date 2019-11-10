@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import {
   MatButtonModule,
   MatGridListModule,
   MatTableModule,
-  MatInputModule
+  MatInputModule,
+  MatIconModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -28,7 +30,9 @@ import { ItuneSearchService } from './service/itune-search.service';
     MatTableModule,
     MatGridListModule,
     FlexLayoutModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    MatIconModule
   ],
   providers: [ItuneSearchService],
   bootstrap: [AppComponent]

@@ -17,7 +17,6 @@ export class AppComponent {
     //Pulls results, converts to array, stores in results: any
     this.searchService.getSongs(this.searchTerm$).subscribe((results) => {
       this.results = Object.values(results)[1];
-      console.log(this.results);
     });
   }
 }

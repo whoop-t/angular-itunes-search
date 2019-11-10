@@ -3,9 +3,23 @@
   <app-header></app-header>
   <!--Input field for search-->
   <mat-form-field class="example-full-width">
-    <input matInput (keyup)="searchTerm$.next($event.target.value)" />
+    <input
+      matInput
+      placeholder="Search Itunes"
+      [(ngModel)]="value"
+      (keyup)="searchTerm$.next($event.target.value)"
+    />
+    <button
+      mat-button
+      *ngIf="value"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="value = ''"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
-  <button mat-button>Submit</button>
 
   <!--List created after searching, returns 3 results-->
   <div *ngIf="results">
