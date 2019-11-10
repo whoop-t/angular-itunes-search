@@ -11,8 +11,7 @@ import {
 @Injectable()
 export class ItuneSearchService {
   //Base URL for Itunes API
-  itunesUrl: string =
-    'https://cors-anywhere.herokuapp.com/https://itunes.apple.com/';
+  itunesUrl: string = 'https://itunes.apple.com/';
   //Search parameters
   queryUrl: string = 'search?term=';
   //Limit parameters
