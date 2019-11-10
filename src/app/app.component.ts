@@ -1,20 +1,22 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ItuneSearchService } from './service/itune-search.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [ItuneSearchService]
 })
 export class AppComponent {
   title = 'angular-itunes-search';
+  results: any;
+  searchTerm$ = new Subject<string>();
 
-  constructor(private http: HttpClient) {}
-
-  ngOnInit() {
-    let obs = this.http.get(
-      'https://itunes.apple.com/search?term=jack+johnson&limit=3'
-    );
-    obs.subscribe((response) => console.log(response));
+  constructor(private searchService: ItuneSearchService) {
+    this.searchService.getSongs(this.searchTerm$).subscribe((results) => {
+      this.results = results.results;
+      console.log(results);
+    });
   }
 }
