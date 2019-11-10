@@ -12,6 +12,7 @@ export class AppComponent {
   title = 'angular-itunes-search';
   results: any;
   searchTerm$ = new Subject<string>();
+  value: any;
 
   constructor(private searchService: ItuneSearchService) {
     //Pulls results, converts to array, stores in results: any

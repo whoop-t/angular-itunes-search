@@ -7,7 +7,6 @@
       matInput
       placeholder="Search Itunes"
       [(ngModel)]="value"
-      value=""
       (keyup)="searchTerm$.next($event.target.value)"
     />
     <button
